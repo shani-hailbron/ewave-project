@@ -1,0 +1,46 @@
+body{
+ text-align: center;
+ overflow-x: hidden;
+ margin-top: 2%;
+}
+
+  .divImgAndName{
+    width: 50%;
+    height: auto;
+  }
+  
+  .contant{
+    width: 50%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    margin: 5%;
+    margin-left: 25%;
+  }
+
+  .hidden{
+    display: none;
+  }
+  .currentImg{
+   margin-right: 20%;
+  }
+
+  .up{
+    width: 50% ;
+    margin-left:29%;
+    margin-top: -10%;
+  }
+  .btn_up{
+    margin: 3%;
+  }
+
+  .formNewMovie,.updateForm  {
+    width: 50%;
+    margin-top: 5%;
+  }
+#btn_add , #btn_save{
+  width: 100%;
+}
+ 
+
+ 

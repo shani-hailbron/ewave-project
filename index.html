@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC company</title>
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.css"/> 
+    <link rel="stylesheet" href="style.css"> 
+
+</head>
+<body id="body" class="bodyIndex">
+
+    <h1 >ABC company - top 10 movies</h1> 
+    
+    <div class=" d-flex flex-row  align-items-center d-flex justify-content-around">
+        <button class="btn_addNewMovie btn btn-primary  d-flex" type="submit">add new movie</button>
+        <form class=" d-flex">
+            <select id="categorySelected" class="custom-select custom-select-mg mb-3">
+                <option value="All">All</option>
+                <option value="History">History</option>
+                <option value="Science">Science</option>
+                <option value="Children">Children</option>
+                <option value="Tension">Tension</option>
+            </select>
+        </form>
+    </div>
+
+    <div id="container" class="row d-flex justify-content-center"></div>
+
+
+    <script src="jquery-3.5.1.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

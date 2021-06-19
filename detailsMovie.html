@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details movie</title>
+    <link rel="stylesheet" href="bootstrap-4.5.0-dist/css/bootstrap.css"/> 
+    <link rel="stylesheet" href="style.css"> 
+
+</head>
+<body>
+    <h1>Details Movie</h1>
+
+    <button class="btn_goToHomePage btn btn-primary " type="submit"  >Back to the previous page</button>
+    <div class="contant">
+    </div>
+    <div class=" up d-flex flex-row  align-items-end justify-content-end">
+        <div class="btn_up">
+            <button type="button" id="updateMovie" class="btn btn-success  ">update movie</button>
+        </div>
+        <div class="btn_up">
+            <button type="button" id="removeMovie" class="btn btn-danger ">remove movie</button>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center"> 
+        <form name="updateForm" class="updateForm hidden">
+            <div class="d-flex flex-column">
+                <select id="categorySelected" name="selected" class="custom-select custom-select-mg mb-3  mrigth_2">
+                    <option value="History">History</option>
+                    <option value="Science">Science</option>
+                    <option value="Children">Children</option>
+                    <option value="Tension">Tension</option>
+            <div>
+                <input id="movieName" type="text" placeholder="MovieName" class="form-control mb-3" required/>
+            </div>
+            <div>
+                <input id="rating" type="number" placeholder="Rating" class="form-control mb-3" required/>
+            </div>
+            <div>
+                <button id="btn_save" type="submit" class=" btn btn-outline-primary   mrigth_2 btn_serch mb-3" >save</button>
+            </div>
+        </form>
+    </div>
+
+ 
+
+
+
+    <script src="jquery-3.5.1.js"></script>
+    <script src="detailsMovie.js"></script>
+</body>
+</html>
