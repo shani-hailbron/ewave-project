@@ -1,6 +1,5 @@
 
 const dom={
-    body: document.getElementById('body'),
     container: document.getElementById('container'),
     selected :document.getElementById('categorySelected'),
     btn_addNewMovie : document.querySelector('.btn_addNewMovie'),
