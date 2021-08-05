@@ -1,27 +1,27 @@
 
-const dom={
+const dom = {
     container: document.getElementById('container'),
     selected :document.getElementById('categorySelected'),
     btn_addNewMovie : document.querySelector('.btn_addNewMovie'),
 }
 
-const data={
+const data = {
     movies:[],
     currentFilter:[],
 };
 
-dom.btn_addNewMovie.onclick=()=>{
+dom.btn_addNewMovie.onclick = ()=>{
     console.log('add');
-    location.href='/addNewMovie.html'; //מעבר לדף של הוספת סרט חדש
+    location.href='/addNewMovie.html'; 
 }
 
 
-dom.selected.onchange=()=>{
-    sortByCategory(); //סינונן לפי קטגוריה
+dom.selected.onchange = ()=>{
+    sortByCategory(); 
 }
 
-//סינון  לפי קטגוריה
-const sortByCategory =()=>{
+//sort by category
+const sortByCategory = ()=>{
     dom.container.innerHTML='';
     let option = dom.selected.options[dom.selected.selectedIndex].value;
     switch(option){
@@ -54,7 +54,7 @@ const sortByCategory =()=>{
 
 
 
-const printMovies=(arr)=>{
+const printMovies = (arr)=>{
     const divs = arr.map(movie=>{
         console.log(movie);
         const url = new URL('/detailsMovie.html', location.href);
@@ -68,7 +68,6 @@ const printMovies=(arr)=>{
         div.classList.add('bd-highlight');
         div.classList.add('m-3');
 
-        //הלחיצה על התמונה תעביר לעמוד של פרטי הסרט
         const a_img = document.createElement('a');
         const image = document.createElement('img');
         image.src=movie.imagePath;
@@ -88,8 +87,8 @@ const printMovies=(arr)=>{
 }
 
 
-//מיון לפי דירוג מהגבוה לנמוך
-const sortByRating=(arr)=>{
+//sort by rating
+const sortByRating = (arr)=>{
   arr.sort((a,b)=>{
       if(a.rating > b.rating)
         return -1;
@@ -99,13 +98,12 @@ const sortByRating=(arr)=>{
 }
 
 
-const fetchMovies=()=>{
+const fetchMovies = ()=>{
     $.ajax({
         url:'https://localhost:44374/api/values/GetAllMovies',
         type: 'GET',
         success:(_data)=>{
             data.movies.push(...sortByRating(_data)) ;
-            console.log(data.movies);
             printMovies(data.movies);
         },
         error:()=>{

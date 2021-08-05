@@ -1,8 +1,8 @@
-body{
- text-align: center;
- overflow-x: hidden;
- margin-top: 2%;
-}
+  body{
+  text-align: center;
+  overflow-x: hidden;
+  margin-top: 2%;
+  }
 
   .divImgAndName{
     width: 50%;
@@ -36,9 +36,9 @@ body{
     width: 50%;
     margin-top: 5%;
   }
-#btn_add , #btn_save{
-  width: 100%;
-}
+  #btn_add , #btn_save{
+    width: 100%;
+  }
  
 
  

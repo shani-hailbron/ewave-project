@@ -11,13 +11,13 @@ const data = {
     currentMovie:{},
 };
 
-dom.btn_goToHomePage.onclick=()=>{
+dom.btn_goToHomePage.onclick = ()=>{
     location.href='/index.html';
 }
 
 
-//URL שנשלח בכתובת  ID שליפה של הסרט לפי ה
-const saveCurrentMovie=()=>{
+//get movie by id from the sessionStorage
+const saveCurrentMovie = ()=>{
     const url = new URL(location.href);
     const id_mov=url.searchParams.get('id');
     console.log(sessionStorage.getItem(`id:${id_mov}`));
@@ -25,10 +25,9 @@ const saveCurrentMovie=()=>{
     showCurrentMovie();
 }
 
-//הצגת פרטי הסרט
-const showCurrentMovie=()=>{
+//show movie details
+const showCurrentMovie = ()=>{
     dom.contant.innerHTML='';
-    console.log('in showCurrentMovie');
     console.log(data.currentMovie);
 
     const bigDiv = document.createElement('div');
@@ -67,12 +66,11 @@ const showCurrentMovie=()=>{
     bigDiv.appendChild(innerDiv);
     dom.contant.append(bigDiv);
     dom.contant.classList.add('d-flex');
-    debugger;
 }
 
 
 
-//עדכון פרטי הסרט
+//movie update
 dom.btn_updateMovie.onclick=()=>{
     dom.updateForm.classList.remove('hidden');
     dom.updateForm.categorySelected.value = data.currentMovie.category;
@@ -80,7 +78,7 @@ dom.btn_updateMovie.onclick=()=>{
     dom.updateForm.rating.value = parseInt(data.currentMovie.rating);
 }
 
-dom.updateForm.onsubmit=(event)=>{
+dom.updateForm.onsubmit = (event)=>{
     event.preventDefault();
     const movie={
         id: data.currentMovie.id,
@@ -95,8 +93,8 @@ dom.updateForm.onsubmit=(event)=>{
 }
 
 
-//עדכון פרטי סרט
-const fetchUpdate=(obj)=>{
+//movie update
+const fetchUpdate = (obj)=>{
     $.ajax({  
         type: 'PUT',
         url: `https://localhost:44374/api/values/UpdateMovie/${data.currentMovie.id}`,
@@ -104,12 +102,12 @@ const fetchUpdate=(obj)=>{
         contentType: "application/json; charset=utf-8",
         success: (response) =>{
           console.log(response + 'response');
-          if(response===1){
+          if(response){
              data.currentMovie=obj;
              alert('Successfully update');
              showCurrentMovie();
           }
-         if(response===0){
+         else{
             alert('There is a movie by that name');
          }
         },
@@ -120,7 +118,7 @@ const fetchUpdate=(obj)=>{
  }
 
 
- //מחיקת סרט
+ //deleting a movie
 dom.btn_removeMovie.onclick=()=>{
     $.ajax({
         type: 'Delete',
@@ -131,8 +129,7 @@ dom.btn_removeMovie.onclick=()=>{
           location.href='/index.html';
         },
         error: ( errorThrown)=> {
-            console.log(errorThrown + "my error")
-           
+            console.log(errorThrown + "my error")          
         }
       });
 }
